@@ -1,0 +1,1 @@
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/GuillermoFidalgo/master-thesis/main.svg?badge_token=9rLIzEHJREKW3AFA8tWj5w)](https://results.pre-commit.ci/latest/github/GuillermoFidalgo/master-thesis/main?badge_token=9rLIzEHJREKW3AFA8tWj5w)
