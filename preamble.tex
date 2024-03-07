@@ -1,0 +1,103 @@
+
+%Packages to include
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{mathpazo}
+% \usepackage{times}
+% \usepackage[letterpaper,width=150mm,top=30mm,bottom=1in,bindingoffset=6mm]{geometry} % for book
+\usepackage[letterpaper,margin=1in]{geometry} % for article
+\usepackage{graphicx,wrapfig,lipsum}
+\usepackage{bm}
+\usepackage{indentfirst}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage[shortlabels]{enumitem}
+\usepackage{subcaption}
+\usepackage{titlesec}
+\usepackage[font={footnotesize}]{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+% \usepackage[subfigure,titles]{tocloft}
+
+
+% \usepackage{url}
+% \urlstyle{same}
+\usepackage{xfrac}
+\usepackage[backend=biber,style=phys,
+articletitle=true,biblabel=brackets,%
+chaptertitle=false,pageranges=false%
+]{biblatex}
+\addbibresource{references.bib}
+% \DeclareFieldFormat[report]{title}{\printtext[doi/url-link]{\mkbibemph{#1}}}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{siunitx}
+
+\settocbibname{References}
+\usepackage[%  
+    colorlinks=true,
+    pdfborder={0 0 0},
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+]{hyperref}
+
+%\bibliography{references.bib}
+\usepackage[nameinlink]{cleveref}
+
+%\linenumbers
+
+%Set images folder
+\graphicspath{ {Images/} }
+
+%Set Header and Footer for all pages
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[LO]{\nouppercase{\textbf{\leftmark}}}
+\fancyhead[RO,LE]{\textbf{\thepage}}
+\fancyhead[RE]{\nouppercase{\textbf{\rightmark}}}
+\fancyfoot{}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+
+% To have the transparent command
+\usepackage{svg}
+
+
+\setlist[itemize]{topsep=\parskip}
+
+%\setlength\abovecaptionskip{-5ex}
+%\setlength{\textfloatsep}{0pt plus 1.0pt minus 2.0pt}
+\setlength\belowcaptionskip{-3ex}
+
+\usepackage[labelfont=bf]{caption}
+% \captionsetup{labelfont=bf}
+
+%Eliminate extra page after title and table of contents
+\let\cleardoublepage=\clearpage
+
+%Make signature and date lines for title page
+\newcommand*{\SignatureAndDate}[1]{
+    \par\noindent\makebox[3.0in]{\hrulefill} \hfill\makebox[2.0in]{\hrulefill}
+    \par\noindent\makebox[2.5in][l]{#1}      \hfill\makebox[2.0in][l]{Date}
+}
+
+%Main Body
+
+\usepackage{lineno}
+\makeatletter
+\def\makeLineNumberLeft{%
+  \linenumberfont\llap{\hb@xt@\linenumberwidth{\LineNumber\hss}\hskip\linenumbersep}% left line number
+  \hskip\columnwidth% skip over a column of text
+  \rlap{\hskip\linenumbersep\hb@xt@\linenumberwidth{\hss\LineNumber}}\hss}% right line number
+\leftlinenumbers% Re-issue [left] option
+\makeatother
+\linenumbers
+
+
+% Adding custom packages
+% \usepackage{physics}

@@ -1,0 +1,51 @@
+% !TEX root = main.tex
+%Specify document class
+\documentclass[12pt,twoside,openany]{book}
+
+\input{preamble.tex}
+
+
+\begin{document}
+\pagenumbering{roman}
+%Title Page
+\input{Title.tex}
+
+\frontmatter
+\doublespace
+\include{chapters/Abstract}
+\include{chapters/Acknowledgements}
+\singlespace
+\tableofcontents
+\listoffigures
+\clearpage
+\doublespace
+\mainmatter
+\pagenumbering{arabic}
+
+
+\include{chapters/Introduction}
+
+\include{chapters/Chapter02}
+
+\include{chapters/Chapter03}
+
+\include{chapters/Chapter04}
+
+\include{chapters/Chapter05}
+
+\include{chapters/Conclusion}
+
+
+% \appendix
+% \chapter{Appendix Title}
+% \input{chapters/appendix}
+
+
+% \nocite{*}
+\printbibliography[heading=bibintoc]
+% \printbibliography[nottype=online,heading=bibintoc]
+
+
+\end{document}
+
+
