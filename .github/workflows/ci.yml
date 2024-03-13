@@ -15,8 +15,14 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  checks:
+    name: Running pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - run: pipx run pre-commit -a -v --show-diff-on-failure
+
   build:
+    needs: checks
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
