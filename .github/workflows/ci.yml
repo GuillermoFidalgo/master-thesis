@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: pipx run -- pre-commit --help
+      - run: pipx run -- pre-commit run --all-files --verbose --show-diff-on-failure
 
   build:
     needs: checks
