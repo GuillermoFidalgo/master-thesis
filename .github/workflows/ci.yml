@@ -37,7 +37,9 @@ jobs:
       - uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
-      - uses: actions/upload-artifact@v4
+
+      - if: github.event_name == 'push'
+        uses: actions/upload-artifact@v4
         with:
           name: my-thesis
           path: main.pdf
