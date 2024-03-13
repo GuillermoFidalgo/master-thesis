@@ -19,7 +19,7 @@ jobs:
     name: Running pre-commit
     runs-on: ubuntu-latest
     steps:
-      - run: pipx run pre-commit -a -v --show-diff-on-failure
+      - run: pipx run -- pre-commit -a -v --show-diff-on-failure
 
   build:
     needs: checks
