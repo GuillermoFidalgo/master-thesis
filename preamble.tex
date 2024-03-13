@@ -28,8 +28,8 @@
 % \urlstyle{same}
 \usepackage{xfrac}
 \usepackage[backend=biber,style=phys,
-articletitle=true,biblabel=brackets,%
-chaptertitle=false,pageranges=false%
+	articletitle=true,biblabel=brackets,%
+	chaptertitle=false,pageranges=false%
 ]{biblatex}
 \addbibresource{references.bib}
 % \DeclareFieldFormat[report]{title}{\printtext[doi/url-link]{\mkbibemph{#1}}}
@@ -39,11 +39,11 @@ chaptertitle=false,pageranges=false%
 
 \settocbibname{References}
 \usepackage[%
-    colorlinks=true,
-    pdfborder={0 0 0},
-    linkcolor=blue,
-    citecolor=blue,
-    urlcolor=blue
+	colorlinks=true,
+	pdfborder={0 0 0},
+	linkcolor=blue,
+	citecolor=blue,
+	urlcolor=blue
 ]{hyperref}
 
 %\bibliography{references.bib}
@@ -84,8 +84,8 @@ chaptertitle=false,pageranges=false%
 
 %Make signature and date lines for title page
 \newcommand*{\SignatureAndDate}[1]{
-    \par\noindent\makebox[3.0in]{\hrulefill} \hfill\makebox[2.0in]{\hrulefill}
-    \par\noindent\makebox[2.5in][l]{#1}      \hfill\makebox[2.0in][l]{Date}
+	\par\noindent\makebox[3.0in]{\hrulefill} \hfill\makebox[2.0in]{\hrulefill}
+	\par\noindent\makebox[2.5in][l]{#1}      \hfill\makebox[2.0in][l]{Date}
 }
 
 %Main Body
@@ -93,9 +93,9 @@ chaptertitle=false,pageranges=false%
 \usepackage{lineno}
 \makeatletter
 \def\makeLineNumberLeft{%
-  \linenumberfont\llap{\hb@xt@\linenumberwidth{\LineNumber\hss}\hskip\linenumbersep}% left line number
-  \hskip\columnwidth% skip over a column of text
-  \rlap{\hskip\linenumbersep\hb@xt@\linenumberwidth{\hss\LineNumber}}\hss}% right line number
+	\linenumberfont\llap{\hb@xt@\linenumberwidth{\LineNumber\hss}\hskip\linenumbersep}% left line number
+	\hskip\columnwidth% skip over a column of text
+	\rlap{\hskip\linenumbersep\hb@xt@\linenumberwidth{\hss\LineNumber}}\hss}% right line number
 \leftlinenumbers% Re-issue [left] option
 \makeatother
 \linenumbers
