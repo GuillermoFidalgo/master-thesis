@@ -52,6 +52,6 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: my-artifact
+          name: my-thesis
       - name: Display structure of downloaded files
         run: ls -R
