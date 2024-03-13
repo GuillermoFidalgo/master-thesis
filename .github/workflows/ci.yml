@@ -43,8 +43,8 @@ jobs:
         with:
           name: my-thesis
           path: main.pdf
-  
-  publish: 
+          
+  publish:
     if: github.event_name == 'push'
     needs: build
     runs-on: ubuntu-latest
@@ -55,4 +55,3 @@ jobs:
           name: my-artifact
       - name: Display structure of downloaded files
         run: ls -R
-
