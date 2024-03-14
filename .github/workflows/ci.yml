@@ -19,7 +19,7 @@ jobs:
     name: Running pre-commit
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # - run: pipx run -- pre-commit run --all-files --verbose --show-diff-on-failure
       - uses: pre-commit/action@v3.0.1
         with:
@@ -33,7 +33,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
