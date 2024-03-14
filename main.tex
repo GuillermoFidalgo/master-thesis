@@ -3,26 +3,25 @@
 \documentclass[12pt,twoside,openany]{book}
 
 \input{preamble.tex}
-
-
 \begin{document}
 % \pagenumbering{roman}
 %Title Page
 \input{Title.tex}
 
 \frontmatter
+
 \doublespace
 \include{chapters/Abstract}
 \include{chapters/Acknowledgements}
+
 \singlespace
 \tableofcontents
 \listoffigures
 \clearpage
 \doublespace
 \mainmatter
-\pagenumbering{arabic}
 
-
+% \pagenumbering{arabic}
 \include{chapters/Introduction}
 
 \include{chapters/Chapter02}
@@ -35,12 +34,10 @@
 
 \include{chapters/Conclusion}
 
-
 \backmatter
 
 % \nocite{*}
 \printbibliography[heading=bibintoc]
 % \printbibliography[nottype=online,heading=bibintoc]
-
 
 \end{document}

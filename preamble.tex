@@ -2,8 +2,10 @@
 %Packages to include
 \usepackage[utf8]{inputenc}
 \usepackage{setspace}
-\usepackage{mathpazo}
-% \usepackage{times}
+
+% \usepackage{mathpazo}
+\usepackage{times}
+
 % \usepackage[letterpaper,margin=1in,
 % width=150mm,top=30mm,bottom=1in,
 % bindingoffset=6mm]{geometry} % for book
@@ -24,8 +26,8 @@
 % \usepackage[subfigure,titles]{tocloft}
 
 
-% \usepackage{url}
-% \urlstyle{same}
+\usepackage{url}
+\urlstyle{same}
 \usepackage{xfrac}
 \usepackage[backend=biber,style=phys,
 	articletitle=true,biblabel=brackets,%
@@ -34,10 +36,11 @@
 \addbibresource{references.bib}
 % \DeclareFieldFormat[report]{title}{\printtext[doi/url-link]{\mkbibemph{#1}}}
 \usepackage[nottoc,numbib]{tocbibind}
+% \settocbibname{References}
+
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{siunitx}
 
-\settocbibname{References}
 \usepackage[%
 	colorlinks=true,
 	pdfborder={0 0 0},
@@ -77,7 +80,6 @@
 \setlength\belowcaptionskip{-3ex}
 
 \usepackage[labelfont=bf]{caption}
-% \captionsetup{labelfont=bf}
 
 %Eliminate extra page after title and table of contents
 \let\cleardoublepage=\clearpage
