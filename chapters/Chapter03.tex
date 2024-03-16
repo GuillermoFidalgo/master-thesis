@@ -5,11 +5,84 @@
 
 The Emerging Jets concept arises from the paper by P. Schwaller \cite{Schwaller:2015gea} where it was proposed to search for the Emerging Jets signature in the Run 1 dataset of the LHC Experiments to set limits on a combination of parameter ranges.
 
-\section{Trigger Efficiency and Scale Factor studies}
+
+
+The full Run 2 dataset is used in the latest search for emerging jets \cite{CMS:2024gxp} accumulating 138 \unit{\per\femto\barn} to search for this signature.
+
+
+
+\begin{figure}
+\centering
+        \begin{subfigure}{.45\linewidth}
+            \includegraphics*[width=\textwidth]{pdfs/FlavoredSchematicOfEvent.pdf}
+            \caption{Flavor aligned}
+        \end{subfigure}
+    \begin{subfigure}{.45\linewidth}
+        \includegraphics*[width=\textwidth]{pdfs/UnflavoredSchematicOfEvent.pdf}
+        \caption{Unflavored}
+    \end{subfigure}
+    \caption{The Emerging Jets event models}
+    \label{fig:emj_production}
+\end{figure}
 
 \begin{figure}
     \begin{center}
-        \fbox{\includegraphics*[width=.7\linewidth]{EMJ_production.png} }
-        \caption{Emerging Jet Production}
+        \begin{subfigure}{.45\linewidth}
+            \includegraphics*[width=\linewidth]{pdfs/BSSWPairProduction_ggFusion.pdf}
+            \caption{gluon-gluon fusion}
+        \end{subfigure}
+        \begin{subfigure}{.45\linewidth}
+            \includegraphics*[width=\linewidth]{pdfs/BSSWPairProduction_qqAnnihilation.pdf}
+            \caption{quark anti-quark annihilation}
+        \end{subfigure}
     \end{center}
+    \caption[Emergin jets production modes]{Feynman diagrams for pair production of dark mediator particles, with mediators decay to an SM quark and a dark quark}
 \end{figure}
+
+In figure \ref{fig:emj_production} we see the production process of the emerging jets signature.
+
+\clearpage
+
+\section{Trigger Efficiency and Scale Factor studies}
+
+
+With a beam spacing of 25~ns, beam crossings occur in the CMS detector at a rate of 40 million per second 40\unit{\MHz}.
+An additional complication is the approximately 25 interactions (referred to as `pileup', which is currently already much higher than the design value of 25) which occur with each beam crossing -- thus giving 1 billion events occurring in the CMS detector every second. In order to extract physics from these interactions it is vital to have fast electronics and very good resolution (proton-proton interactions are very messy and produce hundreds or thousands of particle candidates) and, because these events occur far too quickly to all be recorded and would take up vast amounts of disk space to store what are, for the majority, uninteresting events, very precise ``triggering'' is required.
+
+Events of interest are selected using a two-tiered trigger system. The first level (L1), composed of custom hardware processors, uses information from the calorimeters and muon detectors to select events at a rate of around 100~\unit{kHz} within a fixed latency of 4\unit{\us} ~\cite{CMS:2020cmk}. The second level, known as the high-level trigger (HLT), consists of a farm of processors running a version of the full event reconstruction software optimized for fast processing, and reduces the event rate to around 1~\unit{kHz} before data storage~\cite{CMS:2016ngn}.
+
+
+The $H_T$ triggers chosen are the triggers with the lowest online $H_T$ threshold that are not pre-scaled. The configurations used for this analysis are:
+
+\begin{itemize}
+    \item \verb|HLT_PFHT900_v* OR HLT_PFJet450_v*| for 2016. The addition of a jet trigger path in an OR configuration is the recommended path to mitigate an observed inefficiency at high values of $H_T$ caused by the Level-1 trigger firmware issues for 2016.
+    \item \verb|HLT_PFHT1050_v*| for 2017 and 2018.
+\end{itemize}
+
+The calculation of the trigger efficiency is carried out by using the orthogonal \verb|HLT_Mu50_v*| trigger as the reference trigger. To determine the offline HT threshold at which the trigger can be considered to be fully efficient was estimated by fitting the trigger efficiency as a function of $H_T$ to an error function (erf) and an algebraic function ($f$):
+
+\begin{align}
+ \text{erf}(H_T ;\ A,B,C)  &= \frac A2 \left[1+ \text{erf}\left(\dfrac{H_T - |B|}{C}\right) \right]\label{eq:erf}\\
+ f(H_T ;\ A,B,C,D) &= A \dfrac{\frac{H_T - B}{C}}{1+ \left(\frac{H_T - B}{C}\right)^2} + D \label{eq:alg}
+\end{align}
+
+Where \eqref{eq:erf} and \eqref{eq:alg} are modeled after the sigmoid-like functions
+\[
+    \text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} \dd{t}
+\]
+\[
+    f(x)=\frac{x}{1+x^{2}}
+\]
+
+
+The fit result is used to determine the threshold at which the $H_T$ trigger is expected to reach 99\% of their plateau value. This is also to assist in the termination of the offline HT cut applied to signal event selection, to make sure that signal events are not impacted too much by the trigger turn on effects. Figures 4.1 (a-d), shows the trigger efficiency as a function of event HT evaluated in the 4 data collection eras using the JetHT data stream compared with QCD MC along with an estimate of the trigger plateau value.
+More specifically Figures 4.1 (a-d) compare of efficiency for HT trigger as a function of event HT measured relative to \verb|HLT_Mu50_v*| in data (black) and QCD MC (gray) and fit to the algebraic function f (line). The scale factor values used for signal MC can be found in Tables 4.1-4.3, the uncertainties in the table are just the statistical uncertainties of data and MC selection efficiency propagated appropriately. Tables show Scale factors (SF) and statistical uncertainties of the HT trigger for 2016HIPM (Table 4.1) , 2017  (Table 4.2) and 2018 (Table 4.3).
+
+A detailed plot of the function fits around the turn on region can be found in Figures 4.2 - 4.5 that show the HT trigger efficiencies evaluated in 2016 data (Figure 4.2), 2016HIPM data (Figure 4.3), 2017 data (Figure 4.4)  and 2018 data  (Figure 4.5)  and in each fits to the error function and the algebraic function.
+
+
+
+Trigger efficiency: As shown in Fig 73, the trigger selection efficiency is different between data
+and MC simulation. The ratio of the trigger efficiency in data vs. that in QCD MC is applied
+to each signal MC event as a $H_T$-dependent scaling factor, and the difference in the event acceptance of applying the scale factor and applying the scale factors with a shifted statistical
+uncertainty is treated as its systematic uncertainty.
