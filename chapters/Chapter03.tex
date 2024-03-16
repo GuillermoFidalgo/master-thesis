@@ -12,31 +12,31 @@ The full Run 2 dataset is used in the latest search for emerging jets \cite{CMS:
 
 
 \begin{figure}
-\centering
-        \begin{subfigure}{.45\linewidth}
-            \includegraphics*[width=\textwidth]{pdfs/FlavoredSchematicOfEvent.pdf}
-            \caption{Flavor aligned}
-        \end{subfigure}
-    \begin{subfigure}{.45\linewidth}
-        \includegraphics*[width=\textwidth]{pdfs/UnflavoredSchematicOfEvent.pdf}
-        \caption{Unflavored}
-    \end{subfigure}
-    \caption{The Emerging Jets event models}
-    \label{fig:emj_production}
+	\centering
+	\begin{subfigure}{.45\linewidth}
+		\includegraphics*[width=\textwidth]{pdfs/FlavoredSchematicOfEvent.pdf}
+		\caption{Flavor aligned}
+	\end{subfigure}
+	\begin{subfigure}{.45\linewidth}
+		\includegraphics*[width=\textwidth]{pdfs/UnflavoredSchematicOfEvent.pdf}
+		\caption{Unflavored}
+	\end{subfigure}
+	\caption{The Emerging Jets event models}
+	\label{fig:emj_production}
 \end{figure}
 
 \begin{figure}
-    \begin{center}
-        \begin{subfigure}{.45\linewidth}
-            \includegraphics*[width=\linewidth]{pdfs/BSSWPairProduction_ggFusion.pdf}
-            \caption{gluon-gluon fusion}
-        \end{subfigure}
-        \begin{subfigure}{.45\linewidth}
-            \includegraphics*[width=\linewidth]{pdfs/BSSWPairProduction_qqAnnihilation.pdf}
-            \caption{quark anti-quark annihilation}
-        \end{subfigure}
-    \end{center}
-    \caption[Emergin jets production modes]{Feynman diagrams for pair production of dark mediator particles, with mediators decay to an SM quark and a dark quark}
+	\begin{center}
+		\begin{subfigure}{.45\linewidth}
+			\includegraphics*[width=\linewidth]{pdfs/BSSWPairProduction_ggFusion.pdf}
+			\caption{gluon-gluon fusion}
+		\end{subfigure}
+		\begin{subfigure}{.45\linewidth}
+			\includegraphics*[width=\linewidth]{pdfs/BSSWPairProduction_qqAnnihilation.pdf}
+			\caption{quark anti-quark annihilation}
+		\end{subfigure}
+	\end{center}
+	\caption[Emergin jets production modes]{Feynman diagrams for pair production of dark mediator particles, with mediators decay to an SM quark and a dark quark}
 \end{figure}
 
 In figure \ref{fig:emj_production} we see the production process of the emerging jets signature.
@@ -55,23 +55,23 @@ Events of interest are selected using a two-tiered trigger system. The first lev
 The $H_T$ triggers chosen are the triggers with the lowest online $H_T$ threshold that are not pre-scaled. The configurations used for this analysis are:
 
 \begin{itemize}
-    \item \verb|HLT_PFHT900_v* OR HLT_PFJet450_v*| for 2016. The addition of a jet trigger path in an OR configuration is the recommended path to mitigate an observed inefficiency at high values of $H_T$ caused by the Level-1 trigger firmware issues for 2016.
-    \item \verb|HLT_PFHT1050_v*| for 2017 and 2018.
+	\item \verb|HLT_PFHT900_v* OR HLT_PFJet450_v*| for 2016. The addition of a jet trigger path in an OR configuration is the recommended path to mitigate an observed inefficiency at high values of $H_T$ caused by the Level-1 trigger firmware issues for 2016.
+	\item \verb|HLT_PFHT1050_v*| for 2017 and 2018.
 \end{itemize}
 
 The calculation of the trigger efficiency is carried out by using the orthogonal \verb|HLT_Mu50_v*| trigger as the reference trigger. To determine the offline HT threshold at which the trigger can be considered to be fully efficient was estimated by fitting the trigger efficiency as a function of $H_T$ to an error function (erf) and an algebraic function ($f$):
 
 \begin{align}
- \text{erf}(H_T ;\ A,B,C)  &= \frac A2 \left[1+ \text{erf}\left(\dfrac{H_T - |B|}{C}\right) \right]\label{eq:erf}\\
- f(H_T ;\ A,B,C,D) &= A \dfrac{\frac{H_T - B}{C}}{1+ \left(\frac{H_T - B}{C}\right)^2} + D \label{eq:alg}
+	\text{erf}(H_T ;\ A,B,C) & = \frac A2 \left[1+ \text{erf}\left(\dfrac{H_T - |B|}{C}\right) \right]\label{eq:erf} \\
+	f(H_T ;\ A,B,C,D)        & = A \dfrac{\frac{H_T - B}{C}}{1+ \left(\frac{H_T - B}{C}\right)^2} + D \label{eq:alg}
 \end{align}
 
 Where \eqref{eq:erf} and \eqref{eq:alg} are modeled after the sigmoid-like functions
 \[
-    \text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} \dd{t}
+	\text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} \dd{t}
 \]
 \[
-    f(x)=\frac{x}{1+x^{2}}
+	f(x)=\frac{x}{1+x^{2}}
 \]
 
 
