@@ -11,6 +11,11 @@
 % bindingoffset=6mm]{geometry} % for book
 \usepackage[letterpaper,margin=1in]{geometry} % for article
 \usepackage{graphicx,wrapfig}
+
+%Set images folder
+\graphicspath{ {Images/} }
+
+
 \usepackage{bm}
 \usepackage{indentfirst}
 \usepackage{verbatim}
@@ -52,10 +57,6 @@
 %\bibliography{references.bib}
 \usepackage[nameinlink]{cleveref}
 
-%\linenumbers
-
-%Set images folder
-\graphicspath{ {Images/} }
 
 %Set Header and Footer for all pages
 \usepackage{fancyhdr}
@@ -93,15 +94,30 @@
 %Main Body
 
 \usepackage{lineno}
-\makeatletter
-\def\makeLineNumberLeft{%
-	\linenumberfont\llap{\hb@xt@\linenumberwidth{\LineNumber\hss}\hskip\linenumbersep}% left line number
-	\hskip\columnwidth% skip over a column of text
-	\rlap{\hskip\linenumbersep\hb@xt@\linenumberwidth{\hss\LineNumber}}\hss}% right line number
-\leftlinenumbers% Re-issue [left] option
-\makeatother
+% \makeatletter
+% \def\makeLineNumberLeft{%
+% 	\linenumberfont\llap{\hb@xt@\linenumberwidth{\LineNumber\hss}\hskip\linenumbersep}% left line number
+% 	\hskip\columnwidth% skip over a column of text
+% 	\rlap{\hskip\linenumbersep\hb@xt@\linenumberwidth{\hss\LineNumber}}\hss}% right line number
+% \leftlinenumbers% Re-issue [left] option
+% \makeatother
 \linenumbers
 
 
 % Adding custom packages
 \usepackage{physics}
+\usepackage{xspace}
+\usepackage{graphbox}
+
+%  Personal definitions
+\newcommand{\Qdark}{\ensuremath{Q_{DK}}\xspace}
+\newcommand{\pidark}{\ensuremath{\pi_{DK}}\xspace}
+\newcommand{\Mdark}{\ensuremath{X_{DK}}\xspace}
+
+\newcommand{\dark}{ {DK} }
+\newcommand{\ctau}{\ensuremath{c\tau}\xspace}
+\newcommand{\dpi}{\ensuremath{\pi_\dark}\xspace}
+\newcommand{\ctaudpi}{\ensuremath{\ctau_{\dpi}}\xspace}
+
+\newcommand{\pgroup}[1]{\ensuremath{\left(#1\right)}}
+\newcommand{\HT}{\ensuremath{H_T}\xspace}
