@@ -302,4 +302,4 @@ TSWLatexianTemp*
 
 
 # precommit autofixes??
-*.bak0
+*.bak*

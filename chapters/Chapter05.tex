@@ -1,9 +1,134 @@
-\chapter{Machine Learning for Tracker Data Quality Monitoring (DQM) \label{ch:DQM}}
-DQM is for a high-quality data where increasing data size (10 times more Pixel readout channels for Inner Tracker alone during HL-LHC) is creating a huge challenge for shifters to monitor and certify it.  Use of ML techniques in DQM can aid shifters detect data anomalies as detector conditions change. Currently, a shifter assesses data quality by a manual scrutiny - comparing histograms with reference ones, looking for any deviations.
-We are exploring ML Playground (MLP), a Django-based framework, to automate DQM. It groups training dataset information, automates ML training, and generates reports based on the performance of ML model.
-Fidalgo [31] developed a python code to extract information from Run Registry (RR) on Good/Bad runs. RR along with (1) DQM graphical interface (for 1D and 2D histograms), (2) OMS (Online Monitoring System, for beam conditions like luminosity, pile-up, trigger info) and (3) TkMaps (Tracker Maps for information organized geometrically to visualize issues and data trends in detector components) provides input to the ML framework. Fig. 6 shows a cronjob script by Fidalgo to execute DAS queries and copy files to any area with password-less certificate.
+\chapter{Machine Learning for Tracker Data Quality Monitoring (ML4DQM) \label{ch:DQM}}
+
+\section{DQM Workflows}
+Physicists at CERN use the world’s largest and most complex machinery to probe the fundamental forces of nature.
+The idea of Data Quality Monitoring (DQM) is simple, monitor the data flow from the Compact Muon Solenoid (CMS) detector and certify that it is useful for physics analysis.
+To operate a sophisticated and complex apparatus as CMS, quick online feedback on the quality of the data recorded is needed to avoid taking low-quality data and to guarantee a good baseline for the offline analysis. Collecting good datasets from the collisions is an important step toward the search for ``new physics" as an overwhelming amount of new data poses an extra challenge of processing and storage.
+This makes it all the more important to design algorithms and special software to control the data quality. Hence, DQM plays a critical role in the maintainability of the experiment, the operation efficiency, and it also performs reliable data certification\cite{refId0}.
 
 
-There are two future tasks: Task 1 requires upload of newly collected data from DQMIO (Data Quality Monitoring Input Output) to the ML Playground Graphical User Interface (GUI) and organizing it efficiently for ML use. It requires (1) developing scripts to upload DQMIO files to the dedicated EOS space (EOS provides fast and reliable multi-PB disk-only storage) and track the "health" of the files uploaded, (2)  monitor the file system at regular intervals and discover newly uploaded files, (3) run the MLP parser on the new files, (4) implement robust checks of the files already present in the EOS space and attempt to copy over only newly added files to the list and (5) implement a method that allows for files that are already found in the EOS to be forcibly updated or overwritten at the request of a user, if needed and (6) add logging functionality for detailed bookkeeping in case scripts involved fail. This entails use of DAS (Data Aggregation System) query for files in datasets of interest, iterate through the content generated and copy it to EOS where all DQMIO files are stored for the GUI.
+The current paradigm (see \cref{fig:DQM_workflow}) of DQM has the human shifter in mind. A person spends hours looking at various histograms that indicate the status of the data flow, detector conditions, and other activities. These histograms are checked manually and visually against a reference to help determine the data quality and detector performance.
+\begin{figure}
+	\centering
+	\includegraphics[width=.9\linewidth]{Images/DQM Workflow.png}
+	\caption{The DQM workflow}
+	\label{fig:DQM_workflow}
+\end{figure}
+The DQM workflow consists of 2 types: Online and Offline.
+The Online DQM consists of receiving data taken from the event and trigger histograms to produce results in the form of monitoring elements like histogram references and quality reports. This live monitoring of each detector’s status during data taking gives the online crew the possibility to identify problems with extremely low latency, minimizing the amount of data that would otherwise be unsuitable for physics analysis. The scrutiny of the Online DQM is a 24/7 job that consists of shifters that work at the CMS control center constantly monitoring the hundreds of different plots and histograms produced by the DQM software. This consumes a lot of manpower and is strenuous work.
+Offline DQM is more focused on the full statistics over the entire run of the experiment and works with bookkeeping and data certification. In the offline environment, the system is used to review the results of the final data reconstruction on a run-by-run basis, serving as the foundation for certified data used across the CMS collaboration in all physics analyses.
+
+
+\section{DQM Tools}
+The DQM tools allow shifters to gather the information necessary for performing data certification. The platform used to certify any run's worth of data is the \textit{Certification Helper} (see \cref{fig:certhelper}). This is a web application that provides shifters with information about the runs that have or have not been certified.
+Inside this tool, one can view (as shown in \cref{fig:certhelper-portal,fig:certhelper-cert}) the list of runs certified, a portal to select runs for certification, and a page with a checklist to certify the run.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.75\linewidth]{Images/certhelper-menu.png}
+	\caption{\textit{Certification Helper} is a web app that allows shifters to view, certify, and gather information on a given run.}
+	\label{fig:certhelper}
+\end{figure}
+
+\begin{figure}
+	\centering
+
+	\begin{subfigure}{.7\linewidth}
+		\includegraphics*[width=\linewidth,trim= 4in 1.5in 4in 0]{Images/certhelper-portal.png}
+	\end{subfigure}
+
+	\begin{subfigure}{\linewidth}
+		\includegraphics[width=1\linewidth]{Images/certhelper-list.png}
+	\end{subfigure}
+	\caption{The \textit{Certification Helper} portal that allows shifters to select and view which runs are available to certify.}
+	\label{fig:certhelper-portal}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{Images/certhelp-cert.png}
+	\caption{The view when certifying a run on \textit{Certification Helper}}
+	\label{fig:certhelper-cert}
+\end{figure}
+
+
+Other DQM tools that are frequently used are the \textit{DQM GUI}, \textit{Run Registry}, and \textit{Online Monitoring System} (OMS). We can see snippets of those tools in \cref{fig:dqmgui,fig:RR,fig:OMS}.
+
+
+\begin{figure}
+	\includegraphics*[width=\linewidth,trim= 0 7in 1in 0 ]{Images/DQM GUI.png}
+	\caption{The DQM GUI shows many histograms that shifters use to determine the quality of a run.}
+	\label{fig:dqmgui}
+\end{figure}
+
+\begin{figure}
+	\includegraphics*[width=\linewidth,trim= 2.9in 4.4in 0 0in]{Images/RR.png}
+	\caption{Run Registry. This page is a database that shows the datasets where each run is classified to and also shows it's DQM certification.}
+	\label{fig:RR}
+\end{figure}
+
+
+\begin{figure}
+	\includegraphics*[width=1\linewidth,trim = .8in 1.1in .9in 2.19in]{Images/OMS.png}
+	\caption{OMS webpage. This shows detector and data taking conditions and statistics}
+	\label{fig:OMS}
+\end{figure}
+
+
+\section{Challenges of DQM}
+
+The current DQM process presents many challenges that need to be addressed:
+\begin{itemize}
+	\item The process ultimately depends on the decisions made by during DQM shifts. As time passes shifters must be trained regularly to learn the DQM process and each particular subsystem's specific metrics. The dependence of human shifters leaves the process vulnerable to unforeseen outside influences (such as getting sick, a pandemic, lack of worker availability, etc.). This allows for unpredictable mistakes and biases in the monitoring and certification workflows.
+
+	\item  Worsening this, the amount of histograms to be checked is on the order of 50-100 and many have unique metrics to define what is considered nominal. People can make mistakes and miss errors even with a dedicated team of experts for each subsystem to guide the shifters.
+
+	\item The detector is subject to transient problems that can be overlooked during visual inspection of the monitoring elements. \cite{ML4DQM}
+
+	\item Detector conditions can change drastically enough to require a change in the selection of the reference material. Shift experts also determine this.
+
+	\item A lot of documentation can be found to learn about the DQM procedure. But again, this needs to be kept up-to-date manually. Sometimes this can be outdated information affecting shifter decisions.
+
+	\item The current workflow certifies data on a run-by-run basis (i.e. run granularity). This is especially relevant with the upcoming HL-LHC, where detector conditions will allow for more data to be collected per unit of time.
+\end{itemize}
+
+To address some of these issues, recent campaigns have emerged to reduce the manpower that both Online and Offline DQM entail. With the development of Machine Learning techniques, the hope is to automate the DQM scrutiny to a point where shifters can give better quality certifications more efficiently. We also desire to use ML to sift through data with more time using shorter time intervals known as the luminosity section (LS) granularity.
+Each run is divided into LSs, an interval corresponding to a fixed number of proton-beam orbits in the LHC and amounting to approximately 23 seconds.
+This finer granularity increases the number of histograms to be monitored by 1 or 2 orders of magnitude, making it unfeasible for human certification\cite{ML4DQM}. The work presented here tries to follow in this direction in order to help improve the effort.
+
+\section{Reference Run Ranking (non-ML)}
+
+Part of the work done to enable tools that allow for ML-enabled DQM workflows, was a project to develop a ranking system of the runs to be used as references. Reference runs are typically characterized to be nominal due to the data-taking conditions that were present in them. Also, the reference has to be long enough (i.e. have lots of LSs) to gather meaningful statistics. Currently, an expert shifter would decide based on data-taking conditions and the feedback gathered from DQM shifters if and when a new run should be considered to be used as a reference. There are a number of quality checks that this reference run candidate must pass but it is ultimately decided by the shift leader if it becomes the next reference. To help shift leaders, I have started work on a ranking system that ultimately provides shift leaders with a table of potential candidates. The ranking system looks at conditions like length of the run, how old is the run, and the amount of pileup collisions per event. It then passes these comparisons through a grading metric and returns a table with the results as seen in \cref{fig:ranking}.
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{Images/ranking.png}
+	\caption{Reference run ranking system demo.}
+	\label{fig:ranking}
+\end{figure}
+
+
+\section{ML Playground}
+Following the spirit to move towards an ML-enabled DQM, an effort to develop a platform where ML models can be deployed, trained, and tested for data certification has resulted in what is now called the \textit{Machine Learning Playground} (MLP). MLP is a Django-based framework, to automate DQM. It groups training dataset information, automates ML training, and generates reports based on the performance of an ML model. It is a web application that provides easy access to the most common monitoring elements that are found in the DQM GUI, as well as the data-taking conditions and information found in OMS and the RunRegistry. It also allows for simpler data exploration when interacting with it through its Python API. It is also designed to be scalable, allowing users of other subsystems to benefit from the playground by hosting all the necessary subsystem-specific information.
+
+In this project, I developed code to automate the data ingestion of the MLP by using a cronjob. This cronjob executes a query from another database called \textit{Data Aggregation System} (DAS), to gather lists of newly generated files continuously. The script later downloads and copies files to our CERN-based filesystem called EOS. Afterwards, the script will index the newly copied files to the MLP database and execute the MLP's parsing capabilities, allowing the MLP to read and portray the information contained inside the files.
+I have added logging functionality for detailed bookkeeping in case the scripts involved fail.
+
+
+
+% from Run Registry (RR) on Good/Bad runs, and OMS for beam conditions like luminosity, pile-up, and trigger info.
+% ) and (3) TkMaps (Tracker Maps for information organized geometrically to visualize issues and data trends in detector components) provides input to the ML framework.
+% is for high-quality data where increasing data size (10 times more Pixel readout channels for Inner Tracker alone during HL-LHC) is creating a huge challenge for shifters to monitor and certify it.  Use of ML techniques in DQM can aid shifters detect data anomalies as detector conditions change. Currently, a shifter assesses data quality by a manual scrutiny - comparing histograms with reference ones, looking for any deviations.
+
+\begin{figure}
+	\centering
+	\includegraphics*[width=\linewidth,trim = 1cm 5.2in 13.6in 0]{Images/MLP.png}
+	\caption{ML playground web app}
+	\label{fig:MLplayground}
+\end{figure}
+
+
+There are two future tasks: Task 1 requires me to implement robust checks of the files already present in the EOS space and attempt to copy over only newly added files to the list.
+Secondly, implement a method that allows for files that are already found in the EOS to be forcibly updated or overwritten at the request of a user, if needed.
+
+
 Task 2 will develop a Reference Run Ranking (RRR) tool based on the files provided. When a target run (i.e., a run that the shift leader needs to find a reference run for, during Data Certification (DC) and a set of prior candidate runs are provided to RRR, it will rank these candidate runs from best to worst based on their suitability as reference runs. This should ease the reference run selection and, by identifying high-quality runs, serve as a resource for shifters to find robust training datasets for ML models accessible through the MLP. A reference run should meet two criteria: (1) contain a high amount of LumiSections (LS) to ensure statistical robustness and (2) the run’s data-taking conditions should be as similar as possible to those of the target run.
 Past efforts failed to consistently place the reference run at the top of the list of candidates due to two main problems: firstly, the parameters characterizing each run were not normalized, leading to an artificial inflation of the importance of some parameters over others and secondly, the weights assigned to each parameter were not systematically determined but were instead based on expert opinion and experience. To mitigate these issues, feature vectors would be constructed for both target and candidate runs using (1) Run level features like initial luminosity, end luminosity, change in luminosity, delivered luminosity, start time of the run, and run number and (2) LS level features like average and standard deviation of initial luminosity, average and standard deviation of the end luminosity, average and standard deviation of pileup. Weighted Euclidean distance between feature vectors of the candidate runs and the target run would be computed to gauge similarity between them. A systematic approach would be implemented to determine the appropriate weights for this metric, that will include the normalization and possible standardization of features to ensure that they are comparable irrespective of the statistical approach chosen.
