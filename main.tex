@@ -32,8 +32,16 @@
 
 \include{chapters/Conclusion}
 
-\backmatter
+% \backmatter
 
-\printbibliography[heading=bibintoc]
+
+\printbibliography[keyword = content, heading=bibintoc]
+\printbibliography[keyword = {th}, heading=subbibintoc,title={Talks related to thesis work given at conferences}]
+
+\appendix
+
+\include{appendix}
+% \printbibliography[heading=bibintoc]
+% list of thesis related talks at conferences or meetings
 
 \end{document}

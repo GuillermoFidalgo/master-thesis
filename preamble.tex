@@ -37,8 +37,9 @@
 \usepackage[backend=biber,style=phys,
 	articletitle=true,biblabel=brackets,%
 	chaptertitle=false,pageranges=false,
-	backref=false
+	backref=true,defernumbers
 ]{biblatex}
+%\bibliography{references.bib}
 \addbibresource{references.bib}
 % \DeclareFieldFormat[report]{title}{\printtext[doi/url-link]{\mkbibemph{#1}}}
 \usepackage[nottoc,numbib]{tocbibind}
@@ -55,7 +56,6 @@
 	urlcolor=blue
 ]{hyperref}
 
-%\bibliography{references.bib}
 \usepackage[nameinlink]{cleveref}
 
 

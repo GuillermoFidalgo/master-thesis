@@ -303,3 +303,8 @@ TSWLatexianTemp*
 
 # precommit autofixes??
 *.bak*
+
+
+# Other files
+.DS_Store
+.DS_store
