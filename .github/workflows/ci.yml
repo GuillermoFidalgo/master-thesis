@@ -22,10 +22,27 @@ jobs:
       - uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
-          texlive_version: 2023
-
-      - if: github.event_name == 'push'
-        uses: actions/upload-artifact@v4
+          docker_image: ghcr.io/xu-cheng/texlive-small:latest
+          prec_compile: | 
+            tlmgr update --self && 
+            tlmgr install wrapfig enumitem titlesec svg phys biblatex-phys \
+            tocbibind siunitx cleveref transparent graphbox
+      - uses: actions/upload-artifact@v4
         with:
           name: my-thesis
           path: main.pdf
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: GH Release
+        uses: softprops/action-gh-release@v2.0.4
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          make_latest: true
+          generate_release_notes: true
+          files: |
+            main.pdf
+    permissions:
+      contents: write
