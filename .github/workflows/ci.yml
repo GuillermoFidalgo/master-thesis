@@ -23,7 +23,7 @@ jobs:
         with:
           root_file: main.tex
           docker_image: ghcr.io/xu-cheng/texlive-small:latest
-          prec_compile: |
+          pre_compile: |
             tlmgr update --self &&
             tlmgr install wrapfig enumitem titlesec svg phys biblatex-phys \
             tocbibind siunitx cleveref transparent graphbox
