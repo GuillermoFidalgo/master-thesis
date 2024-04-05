@@ -42,8 +42,6 @@ jobs:
         with:
           make_latest: true
           generate_release_notes: true
-          files: |
-            main.pdf
-            my-thesis
+          files: main.pdf
     permissions:
       contents: write
