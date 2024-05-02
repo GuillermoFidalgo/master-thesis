@@ -81,15 +81,15 @@ Other DQM tools that are frequently used are the \textit{DQM GUI}, \textit{Run R
 
 The current DQM process presents many challenges that need to be addressed:
 \begin{itemize}
-	\item The process ultimately depends on the decisions made by during DQM shifts. As time passes shifters must be trained regularly to learn the DQM process and each particular subsystem's specific metrics. The dependence of human shifters leaves the process vulnerable to unforeseen outside influences (such as getting sick, a pandemic, lack of worker availability, etc.). This allows for unpredictable mistakes and biases in the monitoring and certification workflows.
+	\item The process ultimately depends on the decisions made during DQM shifts. As time passes shifters must be trained regularly to learn the DQM process and each particular subsystem's specific metrics. The dependence of human shifters leaves the process vulnerable to unforeseen outside influences (such as getting sick, a pandemic, lack of worker availability, etc.). This allows for unpredictable mistakes and biases in the monitoring and certification workflows.
 
-	\item  Worsening this, the amount of histograms to be checked is on the order of 50-100 and many have unique metrics to define what is considered nominal. People can make mistakes and miss errors even with a dedicated team of experts for each subsystem to guide the shifters.
+	\item  Worsening this, the amount of histograms to be checked is on the order of 50-100 per hour and many have unique metrics to define what is considered nominal. People can make mistakes and miss errors even with a dedicated team of experts for each subsystem to guide the shifters.
 
 	\item The detector is subject to transient problems that can be overlooked during visual inspection of the monitoring elements. \cite{ML4DQM}
 
 	\item Detector conditions can change drastically enough to require a change in the selection of the reference material. Shift experts also determine this.
 
-	\item A lot of documentation can be found to learn about the DQM procedure. But again, this needs to be kept up-to-date manually. Sometimes this can be outdated information affecting shifter decisions.
+	\item A lot of documentation can be found to learn about the DQM procedure. But again, this needs to be kept up-to-date manually. Sometimes these can be outdated, affecting shifter decisions.
 
 	\item The current workflow certifies data on a run-by-run basis (i.e. run granularity). This is especially relevant with the upcoming HL-LHC, where detector conditions will allow for more data to be collected per unit of time.
 \end{itemize}
@@ -127,7 +127,7 @@ I have added logging functionality for detailed bookkeeping in case the scripts 
 \begin{figure}
 	\centering
 	\includegraphics*[width=\linewidth,trim = 1cm 5.2in 13.6in 0]{Images/MLP.png}
-	\caption{ML playground web app}
+	\caption{ML Playground web app}
 	\label{fig:MLplayground}
 \end{figure}
 
