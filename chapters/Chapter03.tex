@@ -3,11 +3,13 @@
 
 \section{Background information on EJs}
 
-Although there is a preponderance of evidence from astronomical and cosmological observations for the existence of dark matter \cite{What_is_DM}, it has not yet been detected in laboratories, suggesting that its origin may be associated with as-of-yet unobserved physics processes beyond the Standard Model. As experimental searches have excluded a large portion of the phase space of DM models with weakly interacting massive particles \cite{WIMPS}, alternative theoretical models have been developed with a hidden gauge sector, similar to quantum chromodynamics (QCD), which can result in strongly self-interacting DM particles. Dark matter of his type could interact with SM particles through so-called mediator particles and potentially be produced at colliders, producing signatures such as semivisible jets \cite{Nabili:2886140} or emerging jets\cite{sirunyan2019search}.
+Although there is a preponderance of evidence from astronomical and cosmological observations for the existence of dark matter \cite{What_is_DM}, it has not yet been detected in laboratories, suggesting that its origin may be associated with as-of-yet unobserved physics processes beyond the Standard Model.
+As experimental searches have excluded a large portion of the phase space of DM models with weakly interacting massive particles \cite{WIMPS}, alternative theoretical models have been developed with a hidden gauge sector, similar to quantum chromodynamics (QCD), which can result in strongly self-interacting DM particles. Dark matter of his type could interact with SM particles through so-called mediator particles and potentially be produced at colliders, producing signatures such as semivisible jets \cite{Nabili:2886140} or emerging jets\cite{sirunyan2019search}.
 
-The EJ concept is described in \cite{Schwaller:2015gea}. This was used to look for EJs in the Run 1 dataset of the CMS Experiment where a particular model, referred to as the "unflavored" model, is studied \cite*{sirunyan2019search}. The unflavored model of EJ, is mainly concerned with the creation of a dark mediator ($X_{DK}$) that couples to only down quarks.
-However, our current Run-2 EJ analysis surpasses the Run-1 search for EJs in the unflavored scenario, increasing the experimental limit of the dark mediator particle by 500 GeV to set the most stringent limits to date, and provides the first direct exclusion of the flavor-aligned scenario.
-The EJs model is a dark matter model that assumes that there is a QCD-like hidden sector. In particular, in these high-energy collisions, a heavy dark mediator ($X_{DK}$) is produced with a mass on the $\order{\text{TeV}}$, decaying into dark hadrons and mesons that further decay into SM particles. Due to the hierarchy of GeV to TeV energy scales (see \Cref{fig:dark-qcdmodel}), the decay process allows for dark matter particles to travel a measurable distance before decaying.
+The EJ concept is described in \cite{Schwaller:2015gea}. This was used to look for EJs in the Run 1 dataset of the CMS Experiment where a particular model, referred to as the "unflavored" model, is studied \cite{sirunyan2019search}. The unflavored model of EJ, is mainly concerned with the creation of a dark mediator (\Mdark) that couples to only down quarks.
+However, our current Run-2 EJ analysis, which surpasses the Run-1 search for EJs in the unflavored scenario increasing the experimental limit of the dark mediator particle by 500 GeV to set the most stringent limits to date, provides the first direct exclusion of the flavor-aligned scenario.
+The flavor-aligned model describes a scenario where the \Mdark couples to all down-type flavor quarks ($d, s, b$).
+The EJs model is a dark matter model that assumes that there is a QCD-like hidden sector. In particular, in these high-energy collisions, \Mdark is produced with a mass on the $\order{\text{TeV}}$, decaying into dark hadrons and mesons that further decay into SM particles. Due to the hierarchy of GeV to TeV energy scales (see \Cref{fig:dark-qcdmodel}), the decay process allows for dark matter particles to travel a measurable distance before decaying.
 In \Cref{fig:emj_production1} we see the production processes of the EJs signature. There are 2 ways of producing EJs in the LHC. First, is through gluon-gluon fusion and second is from quark anti-quark annihilation.
 Both of these produce a pair of heavy dark mediators, each then decays into an SM quark (\textit{q}) and a dark quark (\Qdark). Further on, we see from \Cref{fig:full-chain} that the \Qdark will decay into \pidark.
 Since these dark pions are unstable and do not carry a dark baryon number, they then decay after some measurable distance into SM particles \cite{Bai_2014} and form SM jets that we can detect.
@@ -54,9 +56,11 @@ Since these dark pions are unstable and do not carry a dark baryon number, they 
 		\includegraphics*[width=\textwidth]{pdfs/UnflavoredSchematicOfEvent.pdf}
 		\caption{Unflavored}
 	\end{subfigure}
-	\caption[Shorter version of the production modes for the Emerging Jets models.]{Shorter version of the production modes for the Emerging Jets models. On the left, we show the flavor-aligned model where all \Qdark couple to down-type SM quarks only (d,s,b).
-		This model has \pidark variable lifetimes (\ctaudpi ) which depend on their composition and the Yukawa coupling constant ($\kappa$) between the mediator particle, the dark quarks, and the SM down quark. This parameter represents the lifetime of each track inside emerging jets.
-		On the right, we show the simpler unflavored model. This produces \Qdark that couple to the down-quark only and all \pidark lifetimes are the same. Taken from internal communications.}
+	\caption[Shorter version of the production modes for the Emerging Jets models.]{Shorter version of the production modes for the Emerging Jets models. On the left, we show the flavor-aligned model where all \Qdark couple to down-type SM quarks only ($d, s, b$).
+	This model gives \pidark variable lifetimes (\ctaudpi ) which depend on their composition and the Yukawa coupling constant ($\kappa$) between the mediator particle, the dark quarks, and the SM down quark.
+	This parameter represents the lifetime of each track inside emerging jets. On the right, we show the simpler unflavored model.
+	This produces \Qdark that couple to the down-quark only and all \pidark lifetimes are the same.
+	Reprinted from internal communications.}
 	\label{fig:emj_production2}
 \end{figure}
 
@@ -84,7 +88,7 @@ where $m_{\Mdark}$ is the mediator mass, $N_c$ is the SM color factor and $m_i, 
 \begin{figure}[b]
 	\centering
 	\includegraphics[width=.65\linewidth]{Images/pdfs/FlavoredLifetime.pdf}
-	\caption[Lifetimes of the dark pions as a function of their mass.]{Lifetime of the \pidark as a function of the $m_{\pidark}$ in the flavor-aligned model. The jumps in the plot are indications of new energy states becoming available.}
+	\caption[Lifetimes of the dark pions as a function of their mass.]{Lifetime of the \pidark as a function of the $m_{\pidark}$ in the flavor-aligned model. The jumps in the plot are indications of new energy states becoming available. Reprinted from \cite{CMS:2024gxp}.}
 	\label{fig:lifetimes}
 \end{figure}
 
@@ -115,7 +119,9 @@ We can see from \Cref{fig:decay-distance} that this model has some distribution 
 	\label{fig:2emj_inCMS}
 \end{figure}
 
-Unfortunately, despite the increased amount of data, and the introduction of machine learning techniques to search for EJs, the results of this analysis found no evidence of the EJs signature and excluded mediator masses up to 1950 (1850) GeV for an unflavored (flavor-aligned) dark QCD model within the upper limit of 95\% statistical confidence level \cite{CMS:2024gxp}.
+Unfortunately, despite the increased amount of data, and the introduction of machine learning techniques to search for EJs, the results of this analysis found no significat deviations from SM predictions. The analysis thus excludes a region of the parameter space from being considered in future searches for EJs. More specifically, for the unflavored model, $m_{X_{DK}} <$  1950 GeV are excluded for $c\tau_{\pi_{DK}} \approx$ 100mm and $m_{\pi_{DK}}=$~10~GeV. In the flavor-aligned scenario we exclude $m_{X_{DK}} <$  1850 GeV at $c\tau^{max}_{\pi_{DK}} \approx$ 500mm for $m_{\pi_{DK}}$= 10GeV
+This result surpasses the previous search for emerging jets in the unflavored scenario, and increases the limit of the dark mediator particle by $\approx$ 500GeV  \cite{CMS:2024gxp}.
+
 
 \clearpage
 
