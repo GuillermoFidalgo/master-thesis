@@ -20,7 +20,7 @@
 # *.ps
 # *.eps
 # *.pdf
-main.pdf
+
 ## Generated if empty string is given at "Please type another file name for output:"
 .pdf
 !Images/**
@@ -308,3 +308,5 @@ TSWLatexianTemp*
 # Other files
 .DS_Store
 .DS_store
+main.pdf
+!Portada.pdf
