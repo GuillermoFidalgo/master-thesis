@@ -1,5 +1,6 @@
 \chapter{Emerging Jets (EJs) \label{ch:emj}}
 
+This was a multi-institution effort with physicists from the University of Puerto Rico-Mayagüez, Colorado University-Boulder, University of Maryland, Panjab University, and Fermilab, and took over two years to complete. Within this analysis team, I worked on trigger studies and determined the scale factors that adjust for any inadequate modeling of Monte Carlo signal simulation data due to trigger turn-on effects. This analysis is now public on \cite{CMS:2024gxp} and has been sent for publication in the Journal for High-Energy Physics (JHEP).
 
 \section{Background information on EJs}
 
@@ -34,14 +35,14 @@ Since these dark pions are unstable and do not carry a dark baryon number, they 
 			\caption{quark anti-quark annihilation}
 		\end{subfigure}
 	\end{center}
-	\caption[Emergin jets production modes]{Feynman diagrams for pair production of dark mediator particles, with mediators decay to an SM quark and a dark quark. The bar ($-$) over the quark symbols signify that they are anti-particles, as is the dagger ($\dagger$) over the \Mdark. Taken from internal communications.}
+	\caption[Emergin jets production modes]{Feynman diagrams for pair production of dark mediator particles, with mediators decay to an SM quark and a dark quark. The bar ($-$) over the quark symbols signify that they are anti-particles, as is the dagger ($\dagger$) over the \Mdark. Reprinted from \cite{CMS:2024gxp}.}
 	\label{fig:emj_production1}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=.8\linewidth]{Images/EMJ_production.png}
-	\caption{Example of the full chain of one production mode. Taken from internal communications.}
+	\caption[Example of the full chain of one production mode.]{Example of the full chain of one production mode. Reprinted from internal communications.}
 	\label{fig:full-chain}
 \end{figure}
 
@@ -79,13 +80,13 @@ For the unflavored model, the average decay length of a dark pion is given by \C
 \end{equation}
 where $f_{\pidark}$ is the dark pion decay constant, $m_\text{d}$ is the mass of the SM down quark, and $m_{\pidark}$ is the dark pion mass. In the flavored aligned model, the coupling constant is now a matrix $\kappa_{\alpha i}$ where the subscript $\alpha ~(i)$ denotes flavors of dark (SM) quarks. In this case, the average decay length for dark mesons is given by \Cref{eq:flavored-ctau}
 \begin{equation}
-	\small
+	% \small
 	\ctaudpi^{\alpha \beta} = \dfrac{8\pi m^4_{\Mdark}}{ N_c m_{\pidark} f^2_{\pidark} \displaystyle \sum_{i,j} \abs{\kappa_{\alpha i} \kappa_{\beta j}^*}^2 \pgroup{m_i^2 + m_j^2} \sqrt{ \pgroup{1- \dfrac{(m_i^2 + m_j^2)^2 }{m^2_{\pidark}} } \pgroup{1- \dfrac{(m_i^2 - m_j^2)^2 }{m^2_{\pidark}} } } }
 	\label{eq:flavored-ctau}
 \end{equation}
 where $m_{\Mdark}$ is the mediator mass, $N_c$ is the SM color factor and $m_i, m_j$ are the masses of the SM quarks with flavor indices $i, j$, respectively\cite{CMS:2024gxp}.
 \Cref{fig:lifetimes} shows the different $c\tau$ for a given $m_{\pidark}$ based on the \pidark composition in the flavor-aligned model. In general, the lifetime of the dark pions goes down as their mass increases, as opposed to the unflavored model where the lifetimes are the same for all \pidark.
-\begin{figure}[b]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=.65\linewidth]{Images/pdfs/FlavoredLifetime.pdf}
 	\caption[Lifetimes of the dark pions as a function of their mass.]{Lifetime of the \pidark as a function of the $m_{\pidark}$ in the flavor-aligned model. The jumps in the plot are indications of new energy states becoming available. Reprinted from \cite{CMS:2024gxp}.}
@@ -171,7 +172,7 @@ Where \Cref{eq:erf,eq:alg} are modeled after the sigmoid-like functions
 The fit result is used to determine the threshold at which the $H_T$ trigger is expected to reach 99\% of their plateau value. This is also to assist in the termination of the offline $H_T$ cut applied to signal event selection, to make sure that signal events are not impacted too much by the trigger turn-on effects. \Cref{fig:HT_efficiencies} shows the trigger efficiency as a function of event $H_T$ evaluated in the 4 data collection eras using the \textit{JetHT} data stream compared with QCD simulation along with an estimate of the trigger plateau value.
 More specifically, \Cref{fig:HT_eff_16,fig:HT_eff_16_HIPM,fig:HT_eff_17,fig:HT_eff_18} compare efficiency for \HT trigger as a function of event \HT measured relative to \verb|HLT_Mu50_v*| in data (black) and QCD MC (gray) and fit the algebraic function \textit{f} (line). With the computation of the efficiency at each range of \HT, we can compute the ratio between the \HT in data and MC. The ratio of the trigger efficiency in data vs. that in QCD MC is applied to each signal MC event as an $H_T$-dependent scaling factor, and the difference in the event acceptance of applying the scale factor and applying the scale factors with a shifted statistical uncertainty is treated as its systematic uncertainty.
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}{.45\textwidth}
 		\includegraphics[width=\linewidth]{Images/pdfs/16_efficiency_withratio_and_fits.pdf}
@@ -203,7 +204,7 @@ More specifically, \Cref{fig:HT_eff_16,fig:HT_eff_16_HIPM,fig:HT_eff_17,fig:HT_e
 The scale factor values used for signal MC can be found in \Cref{tab:2016_triggerSF,tab:2016HIPM_triggerSF,tab:2017_triggerSF,tab:2018_triggerSF}. The uncertainties in the table are just the statistical uncertainties of data and MC selection efficiency propagated appropriately.
 
 
-\begin{table}
+\begin{table}[b]
 	\centering
 	\caption{Scale factors (SF) and statistical uncertainties of the \HT trigger for 2016.}
 	\label{tab:2016_triggerSF}
