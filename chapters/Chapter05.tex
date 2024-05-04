@@ -29,7 +29,7 @@ Inside this tool, one can view (as shown in \Cref{fig:certhelper-portal,fig:cert
 \begin{figure}
 	\centering
 	\includegraphics[width=.75\linewidth]{Images/certhelper-menu.png}
-	\caption[\textit{Certification Helper} webapp.]{\textit{Certification Helper} is a web app that allows shifters to view, certify, and gather information on a given run. Reprinted from \cite*{CertHelper}}
+	\caption[\textit{Certification Helper} webapp.]{Screenshot of the \textit{Certification Helper}. The \textit{Certification Helper} is a web app that allows shifters to view, certify, and gather information on a given run.}
 	\label{fig:certhelper}
 \end{figure}
 
@@ -123,6 +123,8 @@ Following the spirit to move towards an ML-enabled DQM, an effort to develop a p
 In this project, I developed code to automate the data ingestion of the MLP by using a cronjob. This cronjob executes a query from another database called \textit{Data Aggregation System} (DAS), to gather lists of newly generated files continuously. The script later downloads and copies files to our CERN-based filesystem called EOS. Afterward, the script will index the newly copied files to the MLP database and execute the MLP's parsing capabilities, allowing the MLP to read and portray the information contained inside the files.
 I have added logging functionality for detailed bookkeeping in case the scripts involved fail.
 
+There are two future tasks: First, implement robust checks of the files already present in the EOS space and attempt to copy over only newly added files to the list.
+Secondly, implement a method that allows for files that are already found in the EOS to be forcibly updated or overwritten at the request of a user, if needed.
 
 \begin{figure}
 	\centering
@@ -130,7 +132,3 @@ I have added logging functionality for detailed bookkeeping in case the scripts 
 	\caption{A screenshot of the ML Playground web app}
 	\label{fig:MLplayground}
 \end{figure}
-
-
-There are two future tasks: First, implement robust checks of the files already present in the EOS space and attempt to copy over only newly added files to the list.
-Secondly, implement a method that allows for files that are already found in the EOS to be forcibly updated or overwritten at the request of a user, if needed.
