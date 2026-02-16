@@ -27,9 +27,10 @@ jobs:
           root_file: main.tex
           docker_image: ghcr.io/xu-cheng/texlive-small:latest
           pre_compile: |
-            tlmgr update --self && tlmgr install wrapfig enumitem titlesec
-            transparent graphbox physics biblatex biblatex-phys tocbibind
-            siunitx cleveref
+            tlmgr update --self 
+            tlmgr install wrapfig enumitem titlesec
+            tlmgr install transparent graphbox physics biblatex biblatex-phys 
+            tlmgr tocbibind siunitx cleveref
       - uses: actions/upload-artifact@v6
         with:
           name: my-thesis
