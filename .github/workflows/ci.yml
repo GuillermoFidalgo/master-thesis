@@ -31,7 +31,7 @@ jobs:
             tlmgr install wrapfig enumitem titlesec
             tlmgr install transparent graphbox physics biblatex biblatex-phys
             tlmgr install tocbibind siunitx cleveref
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         with:
           name: my-thesis
           path: main.pdf
