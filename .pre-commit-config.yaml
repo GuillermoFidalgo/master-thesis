@@ -13,11 +13,11 @@ repos:
     - id: mixed-line-ending
 
   - repo: https://github.com/cmhughes/latexindent.pl.git
-    rev: V4.0.1
+    rev: V4.0.2
     hooks:
       - id: latexindent
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.2
+    rev: v2.4.3
     hooks:
       - id: codespell
         args: ["--skip=chapters/Abstract.tex", "--ignore-words=codespell.txt"]
